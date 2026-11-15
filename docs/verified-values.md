@@ -1,4 +1,4 @@
-﻿# 宸查獙璇佺殑鍏蜂綋鍙傛暟锛?026-11-15 瀹炴祴锛?
+# 宸查獙璇佺殑鍏蜂綋鍙傛暟锛?026-11-15 瀹炴祴锛?
 杩欏鍊煎湪鏈満璺戦€氳繃锛屽彲鐩存帴澶嶇敤銆傚叏閮ㄦ暟鎹潵鑷疄闄呰繍琛岋紝涓嶆槸鎺ㄦ祴銆?
 ## Cloudflare
 
@@ -9,7 +9,7 @@
 | 闅ч亾鍚?| `kaggle-comfyui` |
 | 闅ч亾 ID | `<YOUR_TUNNEL_ID>` |
 | 鍥哄畾鍩熷悕 | `<YOUR_SUBDOMAIN>.<YOUR_DOMAIN>` |
-| CNAME | `鈫?40f9030d-....cfargotunnel.com`锛坧roxied锛?|
+| CNAME | `鈫?<YOUR_TUNNEL_ID>.cfargotunnel.com`锛坧roxied锛?|
 | ingress | `<YOUR_SUBDOMAIN>.<YOUR_DOMAIN> 鈫?http://localhost:8819` |
 | API Token 鏂囦欢 | `./\cf_token.txt` |
 | 闅ч亾鍑瘉鏂囦欢 | `./\tunnel_token.txt`锛堜篃宸插唴宓屽湪 gateway cell锛?|
