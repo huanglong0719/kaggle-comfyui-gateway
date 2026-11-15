@@ -1,0 +1,38 @@
+# 凭证与本地配置（严禁提交）
+cf_token.txt
+tunnel_token.txt
+kaggle.json
+.env
+*.token
+*.pem
+**/secrets*
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Notebook 运行产物
+.ipynb_checkpoints/
+__results__.html
+__notebook__.ipynb
+
+# 生成的图片/视频
+output/
+*.png
+*.jpg
+*.webp
+*.mp4
+!docs/**/*.png
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# 本地调试
+*.log
+tmp/
