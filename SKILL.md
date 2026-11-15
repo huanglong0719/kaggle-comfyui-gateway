@@ -136,6 +136,28 @@ plugin_manager set_plugin target="include:imagegen" enabled=true
 **涓嬭浇璺緞闄烽槺**锛氭墿鏁ｆā鍨嬪湪 HF 浠撳簱**鏍圭洰褰?*锛宍text_encoders/` 鍜?`vae/` 鎵嶅湪瀛愮洰褰曘€?鎷奸敊浼氭嬁鍒?15 瀛楄妭 404 椤甸潰锛屽姞杞芥椂鎶?`safetensors header is too large`锛堟瀬鏄撹鍒や负鏍煎紡闂锛夈€?蹇呴』鍦ㄤ笅杞藉悗鏍￠獙鏂囦欢澶у皬锛坒p8 7.13GB / te 9.35GB / vae 675MB锛夈€?
 ## 浜虹墿涓€鑷存€э紙鍙傝€冨浘 / 鎹㈣。鐫€鎹㈣〃鎯咃級
 
+涓夌鍏ュ彛锛屾寜闇€閫夛細
+
+| 鍏ュ彛 | 閫傜敤妯″瀷 | 姘村嵃 | 閫熷害 |
+| --- | --- | --- | --- |
+| DSH 闈㈡澘 `edit_image` | `hy-image-3.5` | 鈿狅笍 WORKBUDDY | ~60s |
+| **鏈湴鑴氭湰 `consistency_gen.py`** 猸?| `doubao-seedream-5-lite` 绛?| 鏃?| **~30s** |
+| Kaggle 娓犻亾 `kaggle-turbo` | `qwen-image-2.1-turbo` | 鏃?| ~103s |
+
+**鎻掍欢涓轰粈涔堜細瀵规煇浜涙ā鍨嬫姤 400**锛氬畠鐨勫垎娴侀€昏緫鍐欐涓?`mode === "edit" && !isSeedream(model) && !isAgnes(model) ? "/edits" : "/generations"`锛?seedream/agnes 琚己鍒惰蛋 `/generations`锛圝SON锛夛紝鑰屾湰鍦扮綉鍏宠姹傚弬鑰冨浘璧?`/edits`锛坢ultipart锛夈€?鏈湴缃戝叧鏈韩瀹屽叏鏀寔鍥剧敓鍥撅紝鑴氭湰鎸夋纭牸寮忕洿杩炲嵆鍙€?
+鑴氭湰鐢ㄦ硶锛堣瑙?`docs/consistency-usage.md`锛夛細
+
+```bash
+# 鍗曞紶
+python consistency_gen.py --ref 鍩哄噯鍥?png --prompt "鎹㈡繁鐏拌タ瑁咃紝鐩樺彂锛屽井绗? --out out.png
+
+# 鎵归噺
+python consistency_gen.py --ref 鍩哄噯鍥?png --batch prompts.json --outdir ./variants
+```
+
+鑴氭湰榛樿缁?prompt 鑷姩鍔犺韩浠介攣瀹氬墠缂€銆屼繚鎸佽繖浣嶄汉鐗╅潰閮ㄧ壒寰佸拰韬唤瀹屽叏涓嶅彉鈥︽敼涓猴細銆嶏紝
+`--no-lock` 鍙叧闂€?
+### Kaggle 缃戝叧渚х殑瀹炵幇锛堝鏋滀綘瑕佽嚜宸辨帴锛?
 閫氳繃 `/v1/images/edits` 瀹炵幇锛屽凡鍦?DSH 鐨?`edit_image` 宸ュ叿涓婇獙璇侀€氳繃锛堝悓涓€寮犺劯鎹?5 濂楅€犲瀷浜斿畼瀹屽叏涓€鑷达級銆?
 **宸ヤ綔娴佹帴绾?*锛?
 ```
