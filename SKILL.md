@@ -20,7 +20,7 @@ DSH 生图面板
 
 ## 一次性准备（只做一次）
 
-1. **Cloudflare 托管域名**（免费二级域也可，如 `xxx.cc.cd`）
+1. **Cloudflare 托管域名**（免费二级域也可，如 `my-name.duckdns.org`）
 2. **CF API Token**：My Profile → API Tokens → Custom Token
    - `Account · Cloudflare Tunnel · Edit`
    - `Zone · DNS · Edit`（**必须是 Zone 级**，Account 级 DNS 权限无效！）
