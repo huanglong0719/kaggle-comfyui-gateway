@@ -102,6 +102,28 @@ TUNNEL_TOKEN = os.environ.get("CF_TUNNEL_TOKEN", "")
 
 改完用 `plugin_manager` 重载 `include:imagegen`（停用再启用），不用重启 DSH。
 
+## 一致性角色（同一张脸换衣着/动作/表情）
+
+三种入口按需选，详见 [`docs/consistency-usage.md`](docs/consistency-usage.md)：
+
+| 入口 | 适用模型 | 水印 | 速度 |
+| --- | --- | --- | --- |
+| DSH 面板 `edit_image` | `hy-image-3.5` | ⚠️ WORKBUDDY | ~60s |
+| **`scripts/consistency_gen.py`** ⭐ | `doubao-seedream-5-lite` 等 | 无 | **~30s** |
+| Kaggle 渠道 | `kaggle-turbo` | 无 | ~103s |
+
+```bash
+# 单张
+python consistency_gen.py --ref 基准图.png --prompt "换深灰西装，盘发，微笑" --out out.png
+
+# 批量（同一张脸，多个造型）
+python consistency_gen.py --ref 基准图.png --batch examples/consistency_prompts.json --outdir ./variants
+```
+
+脚本会自动给 prompt 加身份锁定前缀，并走本地网关唯一接受的 `/v1/images/edits` + multipart 格式。
+之所以需要这个脚本：DSH 插件对 `seedream`/`agnes` 会强制把图生图发到 `/generations`（JSON），
+而本地网关要求参考图走 `/edits`，于是报 400。
+
 ## 关键实现点
 
 这些是实际踩出来的，都在 [`docs/troubleshooting.md`](docs/troubleshooting.md) 有详细排查步骤：
